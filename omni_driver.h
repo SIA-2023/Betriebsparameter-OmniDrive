@@ -55,8 +55,8 @@ class OmniDriver {
     void set_motor_speed(float m1Speed, float m2Speed, float m3Speed, int degree=999) {
       if (degree < 998){
         m1Speed = m1Speed * calculate_correction_speed(m1Speed, degree, 1.0, 1.0);
-        m2Speed = m2Speed * calculate_correction_speed(m1Speed, degree, 0.90, 1.00);
-        m3Speed = m3Speed * calculate_correction_speed(m1Speed, degree, 1.0, 0.76);
+        m2Speed = m2Speed * calculate_correction_speed(m2Speed, degree, 0.90, 1.00);
+        m3Speed = m3Speed * calculate_correction_speed(m3Speed, degree, 1.0, 0.76);
       }
 
       for (int x = 20; x <= 100; x++) { // Beschleunigung
