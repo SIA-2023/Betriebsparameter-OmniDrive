@@ -68,6 +68,10 @@ class OmniDriver {
       }
     }
 
+    void set_motor_speed_instant(float m1Speed, float m2Speed, float m3Speed){
+      motor.driverGo(7, m1Speed, m2Speed, m3Speed, 0);
+    }
+
     float map_motor_to_speed(float motor_speed, int specified_speed, float max_speed){
       if(motor_speed > 0){
         motor_speed = map(abs(motor_speed), 0, max_speed, 0, specified_speed);
@@ -136,6 +140,22 @@ class OmniDriver {
     void rotate_right(int speed) {
       set_motor_speed(speed, speed, speed);
     };
+
+    void rotate_degree(int degree){
+      int delay_time = 0;
+
+      if (degree > 0){
+        delay_time = (3 * degree);
+        set_motor_speed_instant(70, 70, 70);
+      }else if (degree < 0) {
+        delay_time = (3 * abs(degree));
+        set_motor_speed_instant(-70, -70, -70);
+      }
+
+      delay(delay_time);
+
+      stop();
+    }
 
     void stop() {
       motor.driverStop(MOTOR_ALL);

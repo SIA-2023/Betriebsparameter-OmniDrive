@@ -20,6 +20,10 @@ void setup(){
 
   delay(500);
 
+  driver.rotate_degree(30); // Rotieren nach Gradangabe (auch mit negativen Grad möglich)
+
+  delay(500);
+
   driver.drive(180 /* Fahrtrichtung in Grad */, 80 /* Speed in % */);
 
   delay(1000);
